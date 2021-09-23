@@ -23,13 +23,16 @@
         ol li {
             margin-bottom: 5px;
         }
-        #title-page, #contents-page, .doc {
+        #title-page, #contents-page, .doc, .subdoc {
             padding-bottom: 12px;
             margin-bottom: 25px;
             border-bottom: 1px solid gray;
         }
-        .doc .content {
+        .doc {
             text-align: justify;
+        }
+        .subdoc {
+            max-width: 98%;
         }
     </style>
 </head>
@@ -126,7 +129,7 @@
                 </div>
             </div>
 
-            <div id="first_letters" class="doc">
+            <div id="first_letters" class="doc" style="display: none;">
                 <h2 style="text-align: center">
                     EPISTOLAE DUAE,<br />
                     DE AUGUSTANA CONFESSIONE<br />
@@ -136,14 +139,12 @@
                     AD PATRIARCHAM CONSTANTINOPOLITANUM,<br />
                     D. Hieremiam, missa.
                 </h3>
-                <div id="letter_1">
+                <div id="letter_1" class="subdoc">
                     <div class="content_grc">
                     </div>
                     <div class="content_lat">
                     </div>
                 </div>
-
-                <hr />
 
                 <div id="letter_2">
                     <div class="content_grc">
@@ -185,7 +186,7 @@
         $('#contents-page a').click(function(e) {
             e.preventDefault();
             $('.doc').hide();
-            $(e.target.href).show();
+            $(e.target.getAttribute('href')).show();
         });
     });
     </script>
