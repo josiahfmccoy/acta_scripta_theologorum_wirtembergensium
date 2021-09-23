@@ -123,12 +123,25 @@
                     pio Lectori. S.
                 </h3>
                 <div class="content">
-                    <p>
-                        Edidit haud ita pridem Stanislaus Socolovius, serenissimi Stephani Polonse Regis Theologus, Patriarche Constantinopolitani ad Confessionem Augustanam, a nobis ipsi transmissam, responsum, furtim comparatum, (censuram Socolovius vocat) ex Graeco in Latinam à se conversum linguam, qua fide, nihil moramur. Cui praefixit ad Pontificem Romanum Gregorium, eius nominis 13, praefationem valde mordacem, odiosam, falsam, mendacem, virulentam, plenamque, Sophistices &amp; calumniarum: qua nos, nostrasque Ecclesias petulanter, mendicanter, malitiose &amp; falso coram toto mundo traducit, criminibusque, atrocissimis haereseos &amp; Apostasias intentatis onerat: quasi deserta Ecclesia Romana, novum, &amp; toti Ecclesiae incognitum doctrinae genus amplexi, ad Graecos confugere, nosque ab illis in communionem recipe (haec enim sunt ipsius verba) studiose petierimus, ipsosque iudices communis causa constituisse vociferatur. Cum igitur tam ab his, quam a Romanensibus, quorum incredibilis sit consensus, concordia summa, ut non eadem tantum dicant omnes, sed iisdem pene verbis sentential contra nos sit lata: ideo non sine causa nos censuram hanc suppressisse. Quare se hanc publice legendam proponere, ut nos transfugas, nihil non contra Matrem nostrum molientes, nullamque nocendi partem relinquentes, proderet: deinde quam nos nostra novitatis pudeat atque taedeat, quod cum nulla Apostolica sede coniuncti simus, quod successionem nullam demonstrare possimus, quod ἀκέφαλοι, hoc est, membra sine capite, demonstraret.
-                    </p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+    $(function() {
+        $('.doc').each(function(i, el) {
+            var id = el.id;
+            if (id == 'preface') {
+                $(el).find('.content').load('/contents/1_preface_lat.html');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
