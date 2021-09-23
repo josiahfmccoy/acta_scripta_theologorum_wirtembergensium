@@ -33,6 +33,7 @@
         }
         .subdoc {
             max-width: 98%;
+            margin: 0 auto;
         }
         .subdoc:last-child {
             padding-bottom: 0;
@@ -191,7 +192,9 @@
         $('#contents-page a').click(function(e) {
             e.preventDefault();
             $('.doc').hide();
-            $(e.target.getAttribute('href')).show();
+            var href = e.target.getAttribute('href');
+            $(href).show();
+            window.location.hash = href;
         });
     });
     </script>
