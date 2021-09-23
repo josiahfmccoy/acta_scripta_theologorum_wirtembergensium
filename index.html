@@ -38,37 +38,37 @@
     <div id="root">
         <div id="title-page" style="text-align: center;">
             <h1>
-                ACTA ET SCRIPTA</br>
-                THEOLOGORUM</br>
-                WIRTEMBERGENSIUM,</br>
+                ACTA ET SCRIPTA<br />
+                THEOLOGORUM<br />
+                WIRTEMBERGENSIUM,<br />
             </h1>
             <h2>
-                ET PATRIARCHAE</br>
-                CONSTANTINOPOLITANI</br>
+                ET PATRIARCHAE<br />
+                CONSTANTINOPOLITANI<br />
                 D. HIEREMIAE:
             </h2>
             <h3>
-                quae utrique ab Anno M. D. LXXVI.</br>
-                usque ad Annum M. D. LXXXI.</br>
-                de AUGUSTANA CONFESSIONE</br>
+                quae utrique ab Anno M. D. LXXVI.<br />
+                usque ad Annum M. D. LXXXI.<br />
+                de AUGUSTANA CONFESSIONE<br />
                 inter se miserunt:
             </h3>
             <h3>
-                Graece &amp; Latine</br>
+                Graece &amp; Latine<br />
                 ab iisdem Theologis edita.
             </h3>
             <h3>
                 WITEBERGAE
             </h3>
             <p style="font-style: italic;">
-                In Officina Haredum Iohannis Cratonis,</br>
-                ANNO <span style="text-decoration: overline;">M. D. LXXXIIII.</span>
+                In Officina Haredum Iohannis Cratonis,<br />
+                ANNO M. D. LXXXIIII.
             </p>
         </div>
 
         <div id="contents-page">
             <h2 style="text-align: center">
-                CONTENTA</br>
+                CONTENTA<br />
                 <small>IN HOC LIBRO</small>
             </h2>
             <ol style="max-width: 400px; margin: 10px auto;">
@@ -77,8 +77,8 @@
                     in qua causa editionis horum Scriptorum redditur.</a>
                 </li>
                 <li>
-                    Epistolae duae, de Augustana Confessione ad Patriarcham
-                    Constantinopolitanum, D. Hieremiam, missae.
+                    <a href="#first_letters">Epistolae duae, de Augustana Confessione ad Patriarcham
+                    Constantinopolitanum, D. Hieremiam, missae.</a>
                 </li>
                 <li>
                     Augustana Confessio, Graece &amp; Latine.
@@ -125,6 +125,33 @@
                 <div class="content">
                 </div>
             </div>
+
+            <div id="first_letters" class="doc">
+                <h2 style="text-align: center">
+                    EPISTOLAE DUAE,<br />
+                    DE AUGUSTANA CONFESSIONE<br />
+
+                </h2>
+                <h3 style="text-align: center">
+                    AD PATRIARCHAM CONSTANTINOPOLITANUM,<br />
+                    D. Hieremiam, missa.
+                </h3>
+                <div id="letter_1">
+                    <div class="content_grc">
+                    </div>
+                    <div class="content_lat">
+                    </div>
+                </div>
+
+                <hr />
+
+                <div id="letter_2">
+                    <div class="content_grc">
+                    </div>
+                    <div class="content_lat">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -137,10 +164,28 @@
     $(function() {
         var loc = window.location.pathname;
         $('.doc').each(function(i, el) {
+            var me = $(el);
             var id = el.id;
             if (id == 'preface') {
-                $(el).find('.content').load(loc + 'contents/1_preface_lat.html');
+                me.find('.content')
+                    .load(loc + 'contents/1_preface_lat.html');
             }
+            else if (id == 'first_letters') {
+                me.find('#letter_1 .content_grc')
+                    .load(loc + 'contents/2_letter_1_grc.html');
+                me.find('#letter_1 .content_lat')
+                    .load(loc + 'contents/2_letter_1_lat.html');
+                me.find('#letter_2 .content_grc')
+                    .load(loc + 'contents/2_letter_2_grc.html');
+                me.find('#letter_2 .content_lat')
+                    .load(loc + 'contents/2_letter_2_lat.html');
+            }
+        });
+
+        $('#contents-page a').click(function(e) {
+            e.preventDefault();
+            $('.doc').hide();
+            $(e.target.href).show();
         });
     });
     </script>
