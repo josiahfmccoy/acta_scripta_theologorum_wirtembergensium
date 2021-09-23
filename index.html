@@ -135,10 +135,11 @@
 
     <script>
     $(function() {
+        var loc = window.location.pathname;
         $('.doc').each(function(i, el) {
             var id = el.id;
             if (id == 'preface') {
-                $(el).find('.content').load('/contents/1_preface_lat.html');
+                $(el).find('.content').load(loc + 'contents/1_preface_lat.html');
             }
         });
     });
