@@ -189,13 +189,20 @@
             }
         });
 
+        function showDoc(hash) {
+            $('.doc').hide();
+            $(hash || '#preface').show();
+            window.location.hash = hash;
+        }
+
         $('#contents-page a').click(function(e) {
             e.preventDefault();
-            $('.doc').hide();
             var href = e.target.getAttribute('href');
-            $(href).show();
-            window.location.hash = href;
+            showDoc(href);
         });
+        $(window).on('hashchange', function(e) {
+            showDoc(window.location.hash);
+        })
     });
     </script>
 </body>
