@@ -11,12 +11,15 @@
     </title>
 
     <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
         body {
             max-width: 100%;
             background-color: #edcca1;
         }
         #root {
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
             padding: 25px 12px;
         }
@@ -39,6 +42,16 @@
             padding-bottom: 0;
             margin-bottom: 0;
             border-bottom: none;
+        }
+        .col-left {
+            width: 50%;
+            float: left;
+            padding-right: 0.5em;
+        }
+        .col-right {
+            width: 50%;
+            float: right;
+            padding-left: 0.5em;
         }
     </style>
 </head>
@@ -146,16 +159,16 @@
                     D. Hieremiam, missa.
                 </h3>
                 <div id="letter_1" class="subdoc" style="overflow: hidden; clear: both">
-                    <div class="content_grc" style="width: 50%; float: left; padding-right: 2px;">
+                    <div class="content_grc col-left">
                     </div>
-                    <div class="content_lat" style="width: 50%; float: right; padding-left: 2px;">
+                    <div class="content_lat col-right">
                     </div>
                 </div>
 
                 <div id="letter_2" class="subdoc" style="overflow: hidden; clear: both">
-                    <div class="content_grc" style="width: 50%; float: left; padding-right: 2px;">
+                    <div class="content_grc col-left">
                     </div>
-                    <div class="content_lat" style="width: 50%; float: right; padding-left: 2px;">
+                    <div class="content_lat col-right">
                     </div>
                 </div>
             </div>
