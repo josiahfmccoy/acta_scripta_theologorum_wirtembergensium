@@ -221,6 +221,7 @@
         });
 
         function showDoc(hash) {
+            hash = hash || window.location.hash;
             $('.doc').hide();
             $(hash || '#preface').show();
             window.location.hash = hash;
@@ -232,8 +233,9 @@
             showDoc(href);
         });
         $(window).on('hashchange', function(e) {
-            showDoc(window.location.hash);
-        })
+            showDoc();
+        });
+        showDoc();
     });
     </script>
 </body>
