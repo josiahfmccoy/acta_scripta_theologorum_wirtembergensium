@@ -113,7 +113,7 @@
                     Constantinopolitanum, D. Hieremiam, missae.</a>
                 </li>
                 <li>
-                    Augustana Confessio, Graece &amp; Latine.
+                    <a href="#augsburg_confession">Augustana Confessio, Graece &amp; Latine.</a>
                 </li>
                 <li>
                     Primum Patriarchae Constantinopolitani, D. Hieremiae,
@@ -162,7 +162,6 @@
                 <h2 style="text-align: center">
                     EPISTOLAE DUAE,<br />
                     DE AUGUSTANA CONFESSIONE<br />
-
                 </h2>
                 <h3 style="text-align: center">
                     AD PATRIARCHAM CONSTANTINOPOLITANUM,<br />
@@ -172,7 +171,7 @@
                     <div class="col-left">Αʹ.</div>
                     <div class="col-right" style="text-align: right;">I.</div>
                 </div>
-                <div id="letter_1" class="subdoc" style="overflow: hidden; clear: both">
+                <div id="letter_1" class="subdoc letter" style="overflow: hidden; clear: both">
                     <div class="content_grc col-left">
                     </div>
                     <div class="content_lat col-right">
@@ -183,7 +182,47 @@
                     <div class="col-left">Βʹ.</div>
                     <div class="col-right" style="text-align: right;">II.</div>
                 </div>
-                <div id="letter_2" class="subdoc" style="overflow: hidden; clear: both">
+                <div id="letter_2" class="subdoc letter" style="overflow: hidden; clear: both">
+                    <div class="content_grc col-left">
+                    </div>
+                    <div class="content_lat col-right">
+                    </div>
+                </div>
+            </div>
+
+            <div id="augsburg_confession" class="doc" style="display: none;">
+                <div class="subdoc-title" style="overflow: hidden; clear: both">
+                    <div class="col-left" style="text-align: center">
+                        <h2 style="margin-bottom: 0.5em;">
+                            ΕΞΟΜΟΛΟΓΗΣΙΣ<br />
+                            ΤΗΣ ὈΡΘΟΔΌΞΟΥ ΠΊΣΤΕΩΣ
+                        </h2>
+                        <p>
+                            Τουτέστι διδαχῆς χριστιανικῆς, προσενεχθεῖσα Καρόλῳ τῷ τῶν ῥωμαίων αὐτοκράτορι ἀνικητοτάτῳ, ἐν τῇ τοῦ σεβαστοῦ παρωνύμῳ τῆς Γερμανίας πόλει, ἔτει ἀπὸ τῆς χριστογονίας αφλ, μεταφρασθεῖσα ὑπὸ Παύλου τοῦ Δολσκίου πλαέως.
+                        </p>
+                    </div>
+                    <div class="col-right" style="text-align: center">
+                        <h2 style="margin-bottom: 0.5em;">
+                            CONFESSIO FIDEI,
+                        </h2>
+                        <p>
+                            Exhibita Invictissimo Imperatori Carolo V. Caesari Augusto in Comitiis Augustae, Anno 1530.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="subdoc-title" style="overflow: hidden; clear: both">
+                    <div class="col-left" style="text-align: center">
+                        <h3 style="margin-bottom: 0;">ΚΕΦΑΛΑΙΑ, Ἢ ἌΡΘΡΑ</h3>
+                        <p>τῆς ὑγιαινούσης καὶ σωτηρίου πίστεως ἐξαίρετα.</p>
+                    </div>
+                    <div class="col-right" style="text-align: center">
+                        <h3 style="margin-bottom: 0;">ARTICULI FIDEI</h3>
+                        <p>praecipui.</p>
+                    </div>
+                </div>
+
+                <div id="article_1" class="subdoc article" style="overflow: hidden; clear: both">
                     <div class="content_grc col-left">
                     </div>
                     <div class="content_lat col-right">
@@ -201,22 +240,32 @@
     <script>
     $(function() {
         var loc = window.location.pathname;
-        $('.doc').each(function(i, el) {
+        $('.doc').each(function(x, el) {
             var me = $(el);
             var id = el.id;
             if (id == 'preface') {
                 me.find('.content')
-                    .load(loc + 'contents/1_preface_lat.html');
+                    .load(loc + 'contents/1_preface/text_lat.html');
             }
             else if (id == 'first_letters') {
-                me.find('#letter_1 .content_grc')
-                    .load(loc + 'contents/2_letter_1_grc.html');
-                me.find('#letter_1 .content_lat')
-                    .load(loc + 'contents/2_letter_1_lat.html');
-                me.find('#letter_2 .content_grc')
-                    .load(loc + 'contents/2_letter_2_grc.html');
-                me.find('#letter_2 .content_lat')
-                    .load(loc + 'contents/2_letter_2_lat.html');
+                me.find('.letter').each(function(i, child) {
+                    var n = i + 1;
+                    var letter = $(child);
+                    letter.find('.content_grc')
+                        .load(loc + 'contents/2_letters/letter_' + n + '_grc.html');
+                    letter.find('.content_lat')
+                        .load(loc + 'contents/2_letters/letter_' + n + '_lat.html');
+                });
+            }
+            else if (id == 'augsburg_confession') {
+                me.find('.article').each(function(i, child) {
+                    var n = i + 1;
+                    var article = $(child);
+                    article.find('.content_grc')
+                        .load(loc + 'contents/3_confession/article_' + n + '_grc.html');
+                    article.find('.content_lat')
+                        .load(loc + 'contents/3_confession/article_' + n + '_lat.html');
+                });
             }
         });
 
